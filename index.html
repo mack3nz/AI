@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artificial Intelligence in Modern Systems</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+
+  <h1>Artificial Intelligence in Modern Systems</h1>
+
+  <div class="section">
+    <h2>Text</h2>
+    <p>Artificial Intelligence (AI) is transforming the way modern systems operate. It refers to machines that are programmed to think and learn like humans. These systems can analyze large amounts of data, recognize patterns, and make decisions without human intervention.</p>
+    <p>Today, AI is being used in various fields such as healthcare, finance, education, and transportation. For example, AI is helping doctors to diagnose diseases more accurately and quickly. In finance, it is used to detect fraud and manage investments.</p>
+    <p>Modern systems are becoming more intelligent every day. They are not only performing tasks but also learning from experience. This process is called machine learning, and it is a core part of AI.</p>
+    <p>The future of AI is very promising. Companies and developers are working on systems that can interact with humans in natural language, drive cars, and even create art. AI is changing the world, and we are just at the beginning.</p>
+  </div>
+
+  <div class="section">
+    <h2>Grammar Focus</h2>
+    <ul>
+      <li><strong>To be (Simple Present):</strong> is, are, is not, are not, Is...?</li>
+      <li><strong>Present Continuous:</strong> is/are + verb+ing</li>
+      <li><strong>Simple Present:</strong> verb in base form (he/she/it + verb+s)</li>
+      <li><strong>Imperatives:</strong> base form of the verb (e.g., Use AI carefully.)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Exercises</h2>
+    <form id="quizForm">
+        <label>1. AI ___ transforming many industries.</label><br>
+        <input type="text" name="q1">
+      
+        <label>2. AI systems ___ not perfect yet.</label><br>
+        <input type="text" name="q2">
+      
+        <label>3. AI ___ doctors in diagnosis.</label><br>
+        <input type="text" name="q3">
+      
+        <label>4. ___ AI used in education?</label><br>
+        <input type="text" name="q4">
+      
+        <label>5. Write one sentence using Present Continuous:</label><br>
+        <input type="text" name="q5">
+      
+        <label>6. What is AI helping with in healthcare?</label><br>
+        <input type="text" name="q6">
+      
+        <label>7. They ___ learning from experience.</label><br>
+        <input type="text" name="q7">
+      
+        <label>8. AI systems ___ large amounts of data.</label><br>
+        <input type="text" name="q8">
+      
+        <label>9. ___ not ignore the ethical risks.</label><br>
+        <input type="text" name="q9">
+      
+        <label>10. Write an imperative sentence related to AI:</label><br>
+        <input type="text" name="q10">
+      
+        <label>11. In which fields is AI currently being used?</label><br>
+        <input type="text" name="q11">
+      
+        <label>12. What is machine learning?</label><br>
+        <input type="text" name="q12">
+      
+        <button type="button" onclick="checkAnswers()">Submit</button>
+      </form>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.forms["quizForm"];
+      const answers = {
+        q1: "is",
+        q2: "are",
+        q3: "helps",
+        q4: "Is",
+        q6: "diagnosing diseases",
+        q7: "are",
+        q8: "analyze",
+        q9: "Do",
+        q11: "healthcare, finance, education, and transportation",
+        q12: "a process where systems learn from experience"
+        };
+
+
+      let resultHTML = "<h3>Results:</h3>";
+      let score = 0;
+
+      for (let key in answers) {
+        const userAnswer = form[key].value.trim().toLowerCase();
+        const correctAnswer = answers[key].toLowerCase();
+
+        if (userAnswer === correctAnswer) {
+          resultHTML += `<p class="correct">Question ${key.slice(1)}: Correct ✅</p>`;
+          score++;
+        } else {
+          resultHTML += `<p class="incorrect">Question ${key.slice(1)}: Incorrect ❌<br><strong>Correct answer:</strong> ${answers[key]}</p>`;
+        }
+      }
+
+      resultHTML += `<p><strong>Your score: ${score}/10</strong></p>`;
+      document.getElementById("result").innerHTML = resultHTML;
+    }
+  </script>
+
+</body>
+</html>
