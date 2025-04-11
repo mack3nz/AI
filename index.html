@@ -75,6 +75,21 @@
   <script>
     function checkAnswers() {
       const form = document.forms["quizForm"];
+      const requiredFields = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12"];
+      let allFilled = true;
+  
+      for (let field of requiredFields) {
+        if (form[field].value.trim() === "") {
+          allFilled = false;
+          break;
+        }
+      }
+  
+      if (!allFilled) {
+        alert("Por favor, preencha todas as perguntas antes de enviar.");
+        return;
+      }
+  
       const answers = {
         q1: "is",
         q2: "are",
@@ -86,16 +101,15 @@
         q9: "Do",
         q11: "healthcare, finance, education, and transportation",
         q12: "a process where systems learn from experience"
-        };
-
-
+      };
+  
       let resultHTML = "<h3>Results:</h3>";
       let score = 0;
-
+  
       for (let key in answers) {
         const userAnswer = form[key].value.trim().toLowerCase();
         const correctAnswer = answers[key].toLowerCase();
-
+  
         if (userAnswer === correctAnswer) {
           resultHTML += `<p class="correct">Question ${key.slice(1)}: Correct ✅</p>`;
           score++;
@@ -103,11 +117,11 @@
           resultHTML += `<p class="incorrect">Question ${key.slice(1)}: Incorrect ❌<br><strong>Correct answer:</strong> ${answers[key]}</p>`;
         }
       }
-
+  
       resultHTML += `<p><strong>Your score: ${score}/10</strong></p>`;
       document.getElementById("result").innerHTML = resultHTML;
     }
-  </script>
+  </script>  
 
 </body>
 </html>
